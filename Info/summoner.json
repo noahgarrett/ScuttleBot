@@ -1,0 +1,17 @@
+[
+  {
+    'leagueId': '561af8db-ee74-4fda-b8e0-8f073a05d511',
+    'queueType': 'RANKED_SOLO_5x5',
+    'tier': 'SILVER',
+    'rank': 'IV',
+    'summonerId': 'IPVKyW9UzMXoHp1fMD8KN6lbz4TKDDvOOxniwvNX76Ab_1gp',
+    'summonerName': 'Xsychgames',
+    'leaguePoints': 21,
+    'wins': 114,
+    'losses': 134,
+    'veteran': False,
+    'inactive': False,
+    'freshBlood': False,
+    'hotStreak': False
+  }
+]
