@@ -12,9 +12,10 @@ class ChampionInfo(commands.Cog):
     async def champ(self, ctx, champion, champ2=None):
         current_champ_list = await main.get_champ_list()
         champ = champion
-
+        champFullName = champ
         if not champ2 is None:
             champ = f'{champion}{champ2}'
+            champFullName = f'{champion} {champ2}'
 
         champion_stats = "No Champion Found"
 
@@ -28,7 +29,7 @@ class ChampionInfo(commands.Cog):
         thumbnail_url = f'http://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/{champ}.png'
 
         em = discord.Embed(
-            title=f"{champ}'s Stats",
+            title=f"{champFullName}'s Stats",
             description=f"{current_champ_list['data'][champ]['tags']}",
             color=discord.Color.purple())
         em.set_thumbnail(url=f'{thumbnail_url}')
