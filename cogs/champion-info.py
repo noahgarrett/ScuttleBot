@@ -14,7 +14,7 @@ class ChampionInfo(commands.Cog):
         champ = champion
         champFullName = champ
         if not champ2 is None:
-            champ = f'{champion}{champ2}'
+            champ = f'{champion.capitalize()}{champ2.capitalize()}'
             champFullName = f'{champion} {champ2}'
 
         champion_stats = "No Champion Found"
