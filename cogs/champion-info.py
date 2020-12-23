@@ -25,11 +25,16 @@ class ChampionInfo(commands.Cog):
                 champ = key
                 break
 
+        thumbnail_url = f'http://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/{champ}.png'
+
         em = discord.Embed(
             title=f"{champ}'s Stats",
             description=f"{current_champ_list['data'][champ]['tags']}",
             color=discord.Color.purple())
-        em.add_field(name=f'Starting Health', value=f'{champion_stats["hp"]}')
+        em.set_thumbnail(url=f'{thumbnail_url}')
+        em.add_field(name=f'HP', value=f'{champion_stats["hp"]}')
+        em.add_field(name=f'HP Per Level', value=f'{champion_stats["hpperlevel"]}')
+        em.add_field(name=f'Mana', value=f'{champion_stats["mp"]}')
         await ctx.send(embed=em)
 
         # await ctx.send(champion_stats)
