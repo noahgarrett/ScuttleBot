@@ -19,20 +19,6 @@ for filename in os.listdir('./cogs'):
         print(f'Loaded: {filename[:-3]}')
 
 ## Helper Functions ##
-async def get_summoner_data():
-    with open('database.json', 'r') as f:
-        users = json.load(f)
-    return users
-
-async def register_summoner_data(user, name):
-    users = await get_summoner_data()
-
-    users[str(user.id)] = {}
-    users[str(user.id)]['name'] = name
-        
-    with open('database.json', 'w') as f:
-        json.dump(users, f, indent=4)
-
 async def get_summoner_id(summoner):
     sum_id = LOL_WATCHER.summoner.by_name(REGION, summoner)
     return sum_id

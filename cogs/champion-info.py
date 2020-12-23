@@ -12,10 +12,10 @@ class ChampionInfo(commands.Cog):
     async def champ(self, ctx, champion, champ2=None):
         current_champ_list = await main.get_champ_list()
         champ = champion
-        champFullName = champ.capitalize()
+        champFullName = champ
         if not champ2 is None:
             champ = f'{champion}{champ2}'
-            champFullName = f'{champion.capitalize()} {champ2.capitalize()}'
+            champFullName = f'{champion} {champ2}'
 
         champion_stats = "No Champion Found"
 
@@ -28,17 +28,19 @@ class ChampionInfo(commands.Cog):
 
         thumbnail_url = f'http://ddragon.leagueoflegends.com/cdn/10.25.1/img/champion/{champ}.png'
 
-        em = discord.Embed(
-            title=f"{champFullName}'s Stats",
-            description=f"{current_champ_list['data'][champ]['tags']}",
-            color=discord.Color.purple())
-        em.set_thumbnail(url=f'{thumbnail_url}')
-        em.add_field(name=f'HP', value=f'{champion_stats["hp"]}')
-        em.add_field(name=f'HP Per Level', value=f'{champion_stats["hpperlevel"]}')
-        em.add_field(name=f'Mana', value=f'{champion_stats["mp"]}')
-        await ctx.send(embed=em)
-
-        # await ctx.send(champion_stats)
+        embed = discord.Embed(title=f"Stats for: {champ}",
+                              description=f"{current_champ_list['data'][champ]['tags']}", color=0xee00ff)
+        embed.set_thumbnail(url=f'{thumbnail_url}')
+        embed.add_field(name=f'HP', value=f'{champion_stats["hp"]}', inline=True)
+        embed.add_field(name=f'HP Per Level', value=f'{champion_stats["hpperlevel"]}', inline=True)
+        embed.add_field(name=f'Mana', value=f'{champion_stats["mp"]}', inline=True)
+        embed.add_field(name=f'Mana Per Level', value=f'{champion_stats["mpperlevel"]}', inline=True)
+        embed.add_field(name=f'AD', value=f'{champion_stats["attackdamage"]}', inline=True)
+        embed.add_field(name=f'AD Per Level', value=f'{champion_stats["attackdamageperlevel"]}', inline=True)
+        embed.add_field(name=f'Attack Speed', value=f'{champion_stats["attackspeed"]}', inline=True)
+        embed.add_field(name=f'Attack Speed Per Level', value=f'{champion_stats["attackspeedperlevel"]}', inline=True)
+        embed.add_field(name=f'Move Speed', value=f'{champion_stats["movespeed"]}', inline=True)
+        await ctx.send(embed=embed)
 
 def setup(client):
     client.add_cog(ChampionInfo(client))

@@ -1,2 +1,4 @@
 pip3 install discord.py
 pip3 install riotwatcher
+pip3 install bs4
+pip3 install lxml
