@@ -12,10 +12,10 @@ class ChampionInfo(commands.Cog):
     async def champ(self, ctx, champion, champ2=None):
         current_champ_list = await main.get_champ_list()
         champ = champion
-        champFullName = champ
+        champFullName = champ.capitalize()
         if not champ2 is None:
-            champ = f'{champion.capitalize()}{champ2.capitalize()}'
-            champFullName = f'{champion} {champ2}'
+            champ = f'{champion}{champ2}'
+            champFullName = f'{champion.capitalize()} {champ2.capitalize()}'
 
         champion_stats = "No Champion Found"
 
