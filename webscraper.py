@@ -3,8 +3,10 @@ import bs4
 
 url = 'https://lolcounter.com/champions'
 
-res = requests.get(url)
+response = requests.get(url)
 
-soup = bs4.BeautifulSoup(res.text, 'html.parser')
+soup = bs4.BeautifulSoup(response.text, 'lxml')
 
-print(soup.prettify())
+champion = soup.find_all('div', {'class': 'champions'})[0].find('a').text
+
+print(champion)
