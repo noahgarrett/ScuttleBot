@@ -4,11 +4,11 @@ import main
 from Bot.constants import *
 from riotwatcher import LolWatcher, ApiError
 
-class Stats(commands.Cog):
+class PlayerStats(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(name="rank", help="#rank | Retrieve your ranked stats")
+    @commands.command(name="rank", help="#rank | Retrieve a summoner's ranked stats")
     async def rank(self, ctx, summoner):
         try:
             sum_rank = await main.get_rank(summoner)
@@ -52,4 +52,4 @@ class Stats(commands.Cog):
                 raise
 
 def setup(client):
-    client.add_cog(Stats(client))
+    client.add_cog(PlayerStats(client))

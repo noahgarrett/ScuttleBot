@@ -5,7 +5,7 @@ import asyncio
 from riotwatcher import LolWatcher, ApiError
 import os, json
 
-API_KEY = 'RGAPI-fb223604-73fb-4af6-bdaf-6e4070bc2bf3'
+API_KEY = 'RGAPI-7a825650-872d-4a16-a9cf-c45bf7a9747b'
 REGION = 'na1'
 LOL_WATCHER = LolWatcher(API_KEY)
 
@@ -34,9 +34,6 @@ async def get_champ_list():
     current_champ_list = LOL_WATCHER.data_dragon.champions(champ_version)
     return current_champ_list
 
-async def remove_space(arg):
-    new_arg = arg.find(" ")
-    return new_arg
 
 ## Runs Bot ##
 client.run(token)
