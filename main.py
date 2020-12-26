@@ -5,12 +5,12 @@ import asyncio
 from riotwatcher import LolWatcher, ApiError
 import os, json
 
-API_KEY = 'RGAPI-7a825650-872d-4a16-a9cf-c45bf7a9747b'
+API_KEY = 'RGAPI-75074842-5be7-4b9a-904e-548c8b3b34df'
 REGION = 'na1'
 LOL_WATCHER = LolWatcher(API_KEY)
 
 client = commands.Bot(command_prefix= '#')
-token = 'NzkxMzM2MTk0MjMwODQ1NDkw.X-NrQw._feoUK6vWreJHrcHAN_p4MEMP3g'
+token = 'NzkxMzM2MTk0MjMwODQ1NDkw.X-NrQw.tOvPuEh5k6mW6ltEgTsiBPaOhvA'
 
 ## Cog Setup ##
 for filename in os.listdir('./cogs'):

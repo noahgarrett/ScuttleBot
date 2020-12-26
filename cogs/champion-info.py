@@ -6,6 +6,7 @@ from riotwatcher import LolWatcher, ApiError
 import requests
 import bs4
 from Bot.rune_img import *
+from Bot.runes import *
 
 class ChampionInfo(commands.Cog):
     def __init__(self, client):
@@ -68,35 +69,33 @@ class ChampionInfo(commands.Cog):
         soup = bs4.BeautifulSoup(response.text, 'lxml')
         soup_ = bs4.BeautifulSoup(response_.text, 'lxml')
 
-        win_rate = soup.find_all('div', {'class': 'win-rate'})[0].find('div').text
-        champ_rank = soup.find_all('div', {'class': 'overall-rank'})[0].find('div').text
-        pick_rate = soup.find_all('div', {'class': 'pick-rate'})[0].find('div').text
+        win_rate = soup_.find_all('div', {'class': 'champion-stats-trend-rate'})[0].text
+        champ_rank = soup_.find_all('div', {'class': 'champion-stats-trend-rank'})[0].find('b').text
+        pick_rate = soup_.find_all('div', {'class': 'champion-stats-trend-rate'})[1].text
         ban_rate = soup.find_all('div', {'class': 'ban-rate'})[0].find('div').text
         matches = soup.find_all('div', {'class': 'matches'})[0].find('div').text
 
         rune_tree = soup_.find_all('div', {'class': 'perk-page__row'})[0].find('img').attrs['src']
         tree_name = ''
-        if rune_tree == precision_tree:
-            rune_tree = '<:precision:792162680369971261>'
-            tree_name = 'Precision'
-        elif rune_tree == domination_tree:
-            rune_tree = '<:domination:792414255214493716>'
-            tree_name = 'Domination'
-        elif rune_tree == sorcery_tree:
-            rune_tree = '<:sorcery:792441210152288256>'
-            tree_name = 'Sorcery'
-        elif rune_tree == resolve_tree:
-            rune_tree = '<:resolve:792421207949312020>'
-            tree_name = 'Resolve'
-        elif rune_tree == inspiration_tree:
-            rune_tree = '<:inspiration:792420733887709224>'
-            tree_name = 'Inspiration'
-        else:
-            rune_tree = 'Not Found'
-            tree_name = ' 404'
+
+        for runes in primary_rune_tree_img:
+            if rune_tree == primary_rune_tree_img[runes]:
+                for tree in tree_names:
+                    if rune_tree == tree_names[tree]:
+                        for emoji in primary_rune_tree_emoji:
+                            if rune_tree == primary_rune_tree_emoji[emoji]:
+                                rune_tree = emoji
+                                tree_name = tree
+                                break
 
         keystone = soup_.find_all('div', {'class': 'perk-page__item--active'})[0].find('img').attrs['src']
         keystone_name = ''
+
+
+
+
+
+
         if keystone == fleet:
             keystone = '<:FleetFootwork:792169831943503923>'
             keystone_name = 'Fleet Footwork'
@@ -623,7 +622,7 @@ class ChampionInfo(commands.Cog):
             color=discord.Color.red())
         em.set_thumbnail(url=thumbnail_url)
         em.add_field(name='Win-Rate', value=win_rate, inline=True)
-        em.add_field(name='Champion Rank', value=champ_rank, inline=True)
+        em.add_field(name='Champion Rank', value=f'{champ_rank}th', inline=True)
 
         em.add_field(name='Pick-Rate', value=pick_rate, inline=False)
 
@@ -643,7 +642,6 @@ class ChampionInfo(commands.Cog):
                                           f'\u200b\n'
                                           f'{secondary1}{secondary1_name}\n'
                                           f'{secondary2}{secondary2_name}\n', inline=True)
-
 
         await ctx.send(embed=em)
 
