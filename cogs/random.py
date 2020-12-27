@@ -7,12 +7,16 @@ class Random(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    @commands.command(name="random", help="#random | Get Random Champion and role")
-    async def random(self, ctx):
+    @commands.command(name="rchamp", help="#rchamp | Get Random Champion and role")
+    async def rchamp(self, ctx):
         champion_json = await main.get_champ_list()
         list_of_champions = self.get_list_of_champions(champion_json)
         randomChamp = random.choice(list_of_champions)
-        await ctx.send(randomChamp)
+
+        e = discord.Embed()
+
+
+        # await ctx.send(randomChamp)
 
     def get_list_of_champions(self, champion_json):
         champion_dict = dict(champion_json)
