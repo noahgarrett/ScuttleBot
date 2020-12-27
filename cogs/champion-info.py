@@ -1,8 +1,6 @@
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands
 import main
-from Bot.constants import *
-from riotwatcher import LolWatcher, ApiError
 import requests
 import bs4
 from Bot.runes import *
