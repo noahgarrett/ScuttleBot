@@ -37,4 +37,4 @@ async def get_champ_list():
 
 ## Runs Bot ##
 # client.run(token)
-client.run(os.environ[token])
+client.run(os.environ['token'])
