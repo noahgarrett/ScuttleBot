@@ -138,33 +138,33 @@ class ChampionInfo(commands.Cog):
 
         rune_tree_2 = soup_.find_all('div', {'class': 'perk-page__item--mark'})[1].find('img').attrs['src']
         tree_name2 = ''
-        for runes_ in secondary_rune_tree_img:
-            if rune_tree_2 == secondary_rune_tree_img[runes_]:
-                for tree_ in tree_names:
-                    if rune_tree_2 == tree_names[tree_]:
-                        for emoji_ in secondary_rune_tree_emoji:
-                            if rune_tree_2 == secondary_rune_tree_emoji[emoji]:
-                                rune_tree_2 = emoji_
-                                tree_name_2 = tree_
-                                break
-        # if rune_tree_2 == precision_tree:
-        #     rune_tree_2 = '<:precision:792162680369971261>'
-        #     tree_name2 = 'Precision'
-        # elif rune_tree_2 == domination_tree:
-        #     rune_tree_2 = '<:domination:792414255214493716>'
-        #     tree_name2 = 'Domination'
-        # elif rune_tree_2 == sorcery_tree:
-        #     rune_tree_2 = '<:sorcery:792441210152288256>'
-        #     tree_name2 = 'Sorcery'
-        # elif rune_tree_2 == resolve_tree:
-        #     rune_tree_2 = '<:resolve:792421207949312020>'
-        #     tree_name2 = 'Resolve'
-        # elif rune_tree_2 == inspiration_tree:
-        #     rune_tree_2 = '<:inspiration:792420733887709224>'
-        #     tree_name2 = 'Inspiration'
-        # else:
-        #     rune_tree_2 = 'Not Found'
-        #     tree_name2 = ' 404'
+        # for runes_ in secondary_rune_tree_img:
+        #     if rune_tree_2 == secondary_rune_tree_img[runes_]:
+        #         for tree_ in tree_names:
+        #             if rune_tree_2 == tree_names[tree_]:
+        #                 for emoji_ in secondary_rune_tree_emoji:
+        #                     if rune_tree_2 == secondary_rune_tree_emoji[emoji]:
+        #                         rune_tree_2 = emoji_
+        #                         tree_name_2 = tree_
+        #                         break
+        if rune_tree_2 == precision_tree:
+            rune_tree_2 = '<:precision:792162680369971261>'
+            tree_name2 = 'Precision'
+        elif rune_tree_2 == domination_tree:
+            rune_tree_2 = '<:domination:792414255214493716>'
+            tree_name2 = 'Domination'
+        elif rune_tree_2 == sorcery_tree:
+            rune_tree_2 = '<:sorcery:792441210152288256>'
+            tree_name2 = 'Sorcery'
+        elif rune_tree_2 == resolve_tree:
+            rune_tree_2 = '<:resolve:792421207949312020>'
+            tree_name2 = 'Resolve'
+        elif rune_tree_2 == inspiration_tree:
+            rune_tree_2 = '<:inspiration:792420733887709224>'
+            tree_name2 = 'Inspiration'
+        else:
+            rune_tree_2 = 'Not Found'
+            tree_name2 = ' 404'
 
         secondary1 = soup_.find_all('div', {'class': 'perk-page__item--active'})[4].find('img').attrs['src']
         secondary1_name = ''
