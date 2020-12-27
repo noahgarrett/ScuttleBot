@@ -3,11 +3,14 @@ import bs4
 from Bot.runes import *
 
 
-url = 'https://na.op.gg/champion/missfortune/statistics'
+url = 'https://na.op.gg/champion/akali/statistics'
+moba_url = 'https://champion.gg/champion/Nasus/Top'
 
 response = requests.get(url)
+moba_response = requests.get(moba_url)
 
 soup = bs4.BeautifulSoup(response.text, 'lxml')
+moba_soup = bs4.BeautifulSoup(response.text, 'lxml')
 
 rune_tree = soup.find_all('div', {'class': 'perk-page__row'})[0].find('img').attrs['src']
 keystone = soup.find_all('div', {'class': 'perk-page__item--active'})[0].find('img').attrs['src']
@@ -18,4 +21,7 @@ win_rate = soup.find_all('div', {'class': 'champion-stats-trend-rate'})[0].text
 
 champ_name = soup.find_all('h1', {'class': 'champion-stats-header-info__name'})[0].text
 
-print(champ_name)
+# .findAll[2] gets potion
+item = soup.find_all('ul', {'class': 'champion-stats__list'})[3].findAll('li')[2].find('img').attrs['src']
+
+print(item)

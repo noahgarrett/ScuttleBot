@@ -74,9 +74,9 @@ class ChampionInfo(commands.Cog):
         ban_rate = soup.find_all('div', {'class': 'ban-rate'})[0].find('div').text
         matches = soup.find_all('div', {'class': 'matches'})[0].find('div').text
 
+        ######### Runes #########
         rune_tree = soup_.find_all('div', {'class': 'perk-page__row'})[0].find('img').attrs['src']
         tree_name = ''
-
         for runes in primary_rune_tree_img:
             if rune_tree == primary_rune_tree_img[runes]:
                 for tree in tree_names:
@@ -170,9 +170,13 @@ class ChampionInfo(commands.Cog):
                                 secondary2 = s2_emoji
                                 secondary2_name = second2_name
                                 break
+        ###################
+
+        ###### Items ######
+
+        ###################
 
         champ_name = soup_.find_all('h1', {'class': 'champion-stats-header-info__name'})[0].text
-
         em = discord.Embed(
             title=f"{champ_name} {role}",
             description=f"Statistics",
@@ -199,6 +203,10 @@ class ChampionInfo(commands.Cog):
                                           f'\u200b\n'
                                           f'{secondary1}{secondary1_name}\n'
                                           f'{secondary2}{secondary2_name}\n', inline=True)
+
+        em.add_field(name='\u200b', value='\u200b', inline=False)
+
+        em.add_field(name='Items:', value='Test')
 
         await ctx.send(embed=em)
 
