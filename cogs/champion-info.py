@@ -143,9 +143,9 @@ class ChampionInfo(commands.Cog):
                 for tree_ in tree_names:
                     if rune_tree_2 == tree_names[tree_]:
                         for emoji_ in secondary_rune_tree_emoji:
-                            if rune_tree == secondary_rune_tree_emoji[emoji]:
-                                rune_tree = emoji_
-                                tree_name = tree_
+                            if rune_tree_2 == secondary_rune_tree_emoji[emoji]:
+                                rune_tree_2 = emoji_
+                                tree_name_2 = tree_
                                 break
         # if rune_tree_2 == precision_tree:
         #     rune_tree_2 = '<:precision:792162680369971261>'
