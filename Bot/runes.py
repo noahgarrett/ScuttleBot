@@ -293,20 +293,3 @@ secondary_rune2 = {
     '<:footwear:792458707794788372>': '//opgg-static.akamaized.net/images/lol/perk/8304.png?image=q_auto:best&v=1607480996',
     '<:stopwatch1:792458707509968936>': '//opgg-static.akamaized.net/images/lol/perk/8313.png?image=q_auto:best&v=1607480996'
 }
-##############################
-tree_names2 = {
-
-}
-
-secondary_rune1_names = {}
-
-secondary_rune2_names = {}
-
-##############################
-secondary_rune_tree_emoji = {
-
-}
-
-secondary_rune1_emoji = {}
-
-secondary_rune2_emoji = {}
