@@ -248,3 +248,65 @@ rune3_names = {
     'Approach Velocity': '//opgg-static.akamaized.net/images/lol/perk/8410.png?image=q_auto:best&v=1607480996',
     'Time Warp Tonic': '//opgg-static.akamaized.net/images/lol/perk/8352.png?image=q_auto:best&v=1607480996'
 }
+
+##############################
+secondary_rune_tree_img = {
+    'precision': '//opgg-static.akamaized.net/images/lol/perkStyle/8000.png?image=q_auto:best&v=1607480996',
+    'domination': '//opgg-static.akamaized.net/images/lol/perkStyle/8100.png?image=q_auto:best&v=1607480996',
+    'sorcery': '//opgg-static.akamaized.net/images/lol/perkStyle/8200.png?image=q_auto:best&v=1607480996',
+    'resolve': '//opgg-static.akamaized.net/images/lol/perkStyle/8400.png?image=q_auto:best&v=1607480996',
+    'inspiration': '//opgg-static.akamaized.net/images/lol/perkStyle/8300.png?image=q_auto:best&v=1607480996'
+}
+
+secondary_rune1 = {
+    '<:overheal:792426715120140288>': '//opgg-static.akamaized.net/images/lol/perk/9101.png?image=q_auto:best&v=1607480996',
+    '<:triumph1:792426714973208597>': '//opgg-static.akamaized.net/images/lol/perk/9111.png?image=q_auto:best&v=1607480996',
+    '<:pom:792426715217002526>': '//opgg-static.akamaized.net/images/lol/perk/8009.png?image=q_auto:best&v=1607480996',
+    '<:cheapshot:792442972620455947>': '//opgg-static.akamaized.net/images/lol/perk/8126.png?image=q_auto:best&v=1607480996',
+    '<:tob:792442972855074826>': '//opgg-static.akamaized.net/images/lol/perk/8139.png?image=q_auto:best&v=1607480996',
+    '<:suddenimpact:792442972875653140>': '//opgg-static.akamaized.net/images/lol/perk/8143.png?image=q_auto:best&v=1607480996',
+    '<:orb:792454318623555594>': '//opgg-static.akamaized.net/images/lol/perk/8224.png?image=q_auto:best&v=1607480996',
+    '<:manaflow:792454318032420874>': '//opgg-static.akamaized.net/images/lol/perk/8226.png?image=q_auto:best&v=1607480996',
+    '<:nimbus:792454318191149136>': '//opgg-static.akamaized.net/images/lol/perk/8275.png?image=q_auto:best&v=1607480996',
+    '<:demolish:792457268523696128>': '//opgg-static.akamaized.net/images/lol/perk/8446.png?image=q_auto:best&v=1607480996',
+    '<:fontoflife:792457268100202527>': '//opgg-static.akamaized.net/images/lol/perk/8463.png?image=q_auto:best&v=1607480996',
+    '<:shieldbash:792457268637204490>': '//opgg-static.akamaized.net/images/lol/perk/8401.png?image=q_auto:best&v=1607480996',
+    '<:hexflash:792458707744980993>': '//opgg-static.akamaized.net/images/lol/perk/8306.png?image=q_auto:best&v=1607480996',
+    '<:footwear:792458707794788372>': '//opgg-static.akamaized.net/images/lol/perk/8304.png?image=q_auto:best&v=1607480996',
+    '<:stopwatch1:792458707509968936>': '//opgg-static.akamaized.net/images/lol/perk/8313.png?image=q_auto:best&v=1607480996'
+}
+
+secondary_rune2 = {
+    '<:overheal:792426715120140288>': '//opgg-static.akamaized.net/images/lol/perk/9101.png?image=q_auto:best&v=1607480996',
+    '<:triumph1:792426714973208597>': '//opgg-static.akamaized.net/images/lol/perk/9111.png?image=q_auto:best&v=1607480996',
+    '<:pom:792426715217002526>': '//opgg-static.akamaized.net/images/lol/perk/8009.png?image=q_auto:best&v=1607480996',
+    '<:cheapshot:792442972620455947>': '//opgg-static.akamaized.net/images/lol/perk/8126.png?image=q_auto:best&v=1607480996',
+    '<:tob:792442972855074826>': '//opgg-static.akamaized.net/images/lol/perk/8139.png?image=q_auto:best&v=1607480996',
+    '<:suddenimpact:792442972875653140>': '//opgg-static.akamaized.net/images/lol/perk/8143.png?image=q_auto:best&v=1607480996',
+    '<:orb:792454318623555594>': '//opgg-static.akamaized.net/images/lol/perk/8224.png?image=q_auto:best&v=1607480996',
+    '<:manaflow:792454318032420874>': '//opgg-static.akamaized.net/images/lol/perk/8226.png?image=q_auto:best&v=1607480996',
+    '<:nimbus:792454318191149136>': '//opgg-static.akamaized.net/images/lol/perk/8275.png?image=q_auto:best&v=1607480996',
+    '<:demolish:792457268523696128>': '//opgg-static.akamaized.net/images/lol/perk/8446.png?image=q_auto:best&v=1607480996',
+    '<:fontoflife:792457268100202527>': '//opgg-static.akamaized.net/images/lol/perk/8463.png?image=q_auto:best&v=1607480996',
+    '<:shieldbash:792457268637204490>': '//opgg-static.akamaized.net/images/lol/perk/8401.png?image=q_auto:best&v=1607480996',
+    '<:hexflash:792458707744980993>': '//opgg-static.akamaized.net/images/lol/perk/8306.png?image=q_auto:best&v=1607480996',
+    '<:footwear:792458707794788372>': '//opgg-static.akamaized.net/images/lol/perk/8304.png?image=q_auto:best&v=1607480996',
+    '<:stopwatch1:792458707509968936>': '//opgg-static.akamaized.net/images/lol/perk/8313.png?image=q_auto:best&v=1607480996'
+}
+##############################
+tree_names2 = {
+
+}
+
+secondary_rune1_names = {}
+
+secondary_rune2_names = {}
+
+##############################
+secondary_rune_tree_emoji = {
+
+}
+
+secondary_rune1_emoji = {}
+
+secondary_rune2_emoji = {}
