@@ -90,222 +90,51 @@ class ChampionInfo(commands.Cog):
 
         keystone = soup_.find_all('div', {'class': 'perk-page__item--active'})[0].find('img').attrs['src']
         keystone_name = ''
-
-
-
-
-
-
-        if keystone == fleet:
-            keystone = '<:FleetFootwork:792169831943503923>'
-            keystone_name = 'Fleet Footwork'
-        elif keystone == conqueror:
-            keystone = '<:Conqueror:792169654340419654>'
-            keystone_name = 'Conqueror'
-        elif keystone == pta:
-            keystone = '<:pta:792175571857571841>'
-            keystone_name = 'Press The Attack'
-        elif keystone == lethal_tempo:
-            keystone = '<:lt:792413035187798047>'
-            keystone_name = 'Lethal Tempo'
-        elif keystone == hob:
-            keystone = '<:hob:792415338142367774>'
-            keystone_name = 'Hail of Blades'
-        elif keystone == electrocute:
-            keystone = '<:electrocute:792415844625547305>'
-            keystone_name = 'Electrocute'
-        elif keystone == predator:
-            keystone = '<:predator:792417169086218280>'
-            keystone_name = 'Predator'
-        elif keystone == dh:
-            keystone = '<:dh:792417673408413728>'
-            keystone_name = 'Dark Harvest'
-        elif keystone == aery:
-            keystone = '<:aery:792419580969746482>'
-            keystone_name = 'Summon Aery'
-        elif keystone == comet:
-            keystone = '<:comet1:792419590751256597>'
-            keystone_name = 'Arcane Comet'
-        elif keystone == phase_rush:
-            keystone = '<:phaserush:792419599215624243>'
-            keystone_name = 'Phase Rush'
-        elif keystone == grasp:
-            keystone = '<:grasp:792422018187264020>'
-            keystone_name = 'Grasp of the Undying'
-        elif keystone == aftershock:
-            keystone = '<:aftershock:792422039952556062>'
-            keystone_name = 'Aftershock'
-        elif keystone == guardian:
-            keystone = '<:guardian:792422039411490858>'
-            keystone_name = 'Guardian'
-        elif keystone == glacial:
-            keystone = '<:glacial:792423350667706368>'
-            keystone_name = 'Glacial Augment'
-        elif keystone == spellbook:
-            keystone = '<:spellbook:792423350956982302>'
-            keystone_name = 'Unsealed Spellbook'
-        elif keystone == omnistone:
-            keystone = '<:omnistone:792423350609510449>'
-            keystone_name = 'Prototype: Omnistone'
-        else:
-            keystone = '**Not Found**'
-            keystone_name = ' 404'
+        for stone in keystones_img:
+            if keystone == keystones_img[stone]:
+                for k_name in keystone_names:
+                    if keystone == keystone_names[k_name]:
+                        for k_emoji in keystones_emoji:
+                            if keystone == keystones_emoji[k_emoji]:
+                                keystone = k_emoji
+                                keystone_name = k_name
+                                break
 
         rune1 = soup_.find_all('div', {'class': 'perk-page__item--active'})[1].find('img').attrs['src']
         rune1_name = ''
-        if rune1 == overheal:
-            rune1 = '<:overheal:792426715120140288>'
-            rune1_name = 'Overheal'
-        elif rune1 == triumph:
-            rune1 = '<:triumph1:792426714973208597>'
-            rune1_name = 'Triumph'
-        elif rune1 == pom:
-            rune1 = '<:pom:792426715217002526>'
-            rune1_name = 'Presence of Mind'
-        elif rune1 == cheapshot:
-            rune1 = '<:cheapshot:792442972620455947>'
-            rune1_name = 'Cheap Shot'
-        elif rune1 == tob:
-            rune1 = '<:tob:792442972855074826>'
-            rune1_name = 'Taste of Blood'
-        elif rune1 == sudden_impact:
-            rune1 = '<:suddenimpact:792442972875653140>'
-            rune1_name = 'Sudden Impact'
-        elif rune1 == orb:
-            rune1 = '<:orb:792454318623555594>'
-            rune1_name = 'Nullifying Orb'
-        elif rune1 == manaflow:
-            rune1 = '<:manaflow:792454318032420874>'
-            rune1_name = 'Manaflow Band'
-        elif rune1 == nimbus:
-            rune1 = '<:nimbus:792454318191149136>'
-            rune1_name = 'Nimbus Cloak'
-        elif rune1 == demolish:
-            rune1 = '<:demolish:792457268523696128>'
-            rune1_name = 'Demolish'
-        elif rune1 == font_of_life:
-            rune1 = '<:fontoflife:792457268100202527>'
-            rune1_name = 'Font of Life'
-        elif rune1 == shield_bash:
-            rune1 = '<:shieldbash:792457268637204490>'
-            rune1_name = 'Shield Bash'
-        elif rune1 == hexflash:
-            rune1 = '<:hexflash:792458707744980993>'
-            rune1_name = 'Hexflash Flashtraption'
-        elif rune1 == footwear:
-            rune1 = '<:footwear:792458707794788372>'
-            rune1_name = 'Magical Footwear'
-        elif rune1 == stopwatch:
-            rune1 = '<:stopwatch1:792458707509968936>'
-            rune1_name = 'Perfect Timing'
-        else:
-            rune1 = '**Not Found**'
-            rune1_name = ' 404'
+        for rune in rune1_img:
+            if rune1 == rune1_img[rune]:
+                for r1_name in rune1_names:
+                    if rune1 == rune1_names[r1_name]:
+                        for r1_emoji in rune1_emoji:
+                            if rune1 == rune1_emoji[r1_emoji]:
+                                rune1 = r1_emoji
+                                rune1_name = r1_name
+                                break
 
         rune2 = soup_.find_all('div', {'class': 'perk-page__item--active'})[2].find('img').attrs['src']
         rune2_name = ''
-        if rune2 == alacrity:
-            rune2 = '<:alacrity:792429210035159073>'
-            rune2_name = 'Legend: Alacrity'
-        elif rune2 == tenacity:
-            rune2 = '<:tenacity:792429212383969311>'
-            rune2_name = 'Legend: Tenacity'
-        elif rune2 == bloodline:
-            rune2 = '<:bloodline:792429210865631262>'
-            rune2_name = 'Legend: Bloodline'
-        elif rune2 == zombie_ward:
-            rune2 = '<:zombieward:792456100011573278>'
-            rune2_name = 'Zombie Ward'
-        elif rune2 == ghost_poro:
-            rune2 = '<:ghostporo:792456099886399488>'
-            rune2_name = 'Ghost Poro'
-        elif rune2 == eyeball:
-            rune2 = '<:eyeball:792456099709452338>'
-            rune2_name = 'Eyeball Collection'
-        elif rune2 == transcendence:
-            rune2 = '<:transcendence:792454318422753311>'
-            rune2_name = 'Transcendence'
-        elif rune2 == celarity:
-            rune2 = '<:celarity:792454317877493810>'
-            rune2_name = 'Celarity'
-        elif rune2 == focus:
-            rune2 = '<:focus:792454317571440662>'
-            rune2_name = 'Absolute Focus'
-        elif rune2 == conditioning:
-            rune2 = '<:conditioning:792457267990495304>'
-            rune2_name = 'Conditioning'
-        elif rune2 == second_wind:
-            rune2 = '<:secondwind:792457268624490556>'
-            rune2_name = 'Second Wind'
-        elif rune2 == boneplating:
-            rune2 = '<:boneplating:792457267932692511>'
-            rune2_name = 'Bone Plating'
-        elif rune2 == future:
-            rune2 = '<:future:792458707467894794>'
-            rune2_name = "Future's Market"
-        elif rune2 == minion:
-            rune2 = '<:minion:792458707295535136>'
-            rune2_name = 'Minion Dematerializer'
-        elif rune2 == biscuit:
-            rune2 = '<:biscuit:792458706511069254>'
-            rune2_name = 'Biscuit Delivery'
-        else:
-            rune2 = '**Not Found**'
-            rune2_name = ' 404'
+        for rune_ in rune2_img:
+            if rune2 == rune2_img[rune_]:
+                for r2_name in rune2_names:
+                    if rune2 == rune2_names[r2_name]:
+                        for r2_emoji in rune2_emoji:
+                            if rune2 == rune2_emoji[r2_emoji]:
+                                rune2 = r2_emoji
+                                rune2_name = r2_name
+                                break
 
         rune3 = soup_.find_all('div', {'class': 'perk-page__item--active'})[3].find('img').attrs['src']
         rune3_name = ''
-        if rune3 == coup:
-            rune3 = '<:coup:792430510512406619>'
-            rune3_name = 'Coup de Grace'
-        elif rune3 == cut_down:
-            rune3 = '<:cutdown:792430510806007838>'
-            rune3_name = 'Cut Down'
-        elif rune3 == last_stand:
-            rune3 = '<:laststand:792430510390509570>'
-            rune3_name = 'Last Stand'
-        elif rune3 == ravenous:
-            rune3 = '<:ravenous:792455662692073472>'
-            rune3_name = 'Ravenous Hunter'
-        elif rune3 == ingenious:
-            rune3 = '<:ingenious:792455662604648448>'
-            rune3_name = 'Ingenious Hunter'
-        elif rune3 == relentless:
-            rune3 = '<:relentless:792455662595866654>'
-            rune3_name = 'Relentless Hunter'
-        elif rune3 == ultimate:
-            rune3 = '<:ultimate:792455662659567647>'
-            rune3_name = 'Ultimate Hunter'
-        elif rune3 == scorch:
-            rune3 = '<:scorch:792454318317633586>'
-            rune3_name = 'Scorch'
-        elif rune3 == water_walking:
-            rune3 = '<:waterwalking:792454318028619814>'
-            rune3_name = 'Waterwalking'
-        elif rune3 == gathering_storm:
-            rune3 = '<:gatheringstorm:792454317915373568>'
-            rune3_name = 'Gathering Storm'
-        elif rune3 == overgrowth:
-            rune3 = '<:overgrowth:792457268293664779>'
-            rune3_name = 'Overgrowth'
-        elif rune3 == revitalize:
-            rune3 = '<:revitalize:792457268507312148>'
-            rune3_name = 'Revitalize'
-        elif rune3 == unflinching:
-            rune3 = '<:unflinching:792457268499054631>'
-            rune3_name = 'Unflinching'
-        elif rune3 == cosmic:
-            rune3 = '<:cosmic:792458706646073384>'
-            rune3_name = 'Cosmic Insight'
-        elif rune3 == approach_velocity:
-            rune3 = '<:approachvelocity:792458706468995103>'
-            rune3_name = 'Approach Velocity'
-        elif rune3 == timewarp:
-            rune3 = '<:timewarp:792458707023691776>'
-            rune3_name = 'Time Warp Tonic'
-        else:
-            rune3 = '**Not Found**'
-            rune3_name = ' 404'
+        for rune__ in rune3_img:
+            if rune3 == rune3_img[rune__]:
+                for r3_name in rune3_names:
+                    if rune3 == rune3_names[r3_name]:
+                        for r3_emoji in rune3_emoji:
+                            if rune3 == rune3_emoji[r3_emoji]:
+                                rune3 = r3_emoji
+                                rune3_name = r3_name
+                                break
 
         rune_tree_2 = soup_.find_all('div', {'class': 'perk-page__item--mark'})[1].find('img').attrs['src']
         tree_name2 = ''
