@@ -99,6 +99,11 @@ async def rchamp(ctx):
     em.add_field(name='Syntax', value='`#rchamp`')
     await ctx.send(embed=em)
 
+## Ping Command ##
+@client.command()
+async def ping(ctx):
+    await ctx.send(f"My latency is: {round(client.latency * 1000)}ms")
+
 ## Runs Bot ##
 client.run(token)
 # client.run(os.environ['token'])
