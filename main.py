@@ -5,7 +5,7 @@ import asyncio
 from riotwatcher import LolWatcher, ApiError
 import os, json
 
-API_KEY = 'RGAPI-3062ac3d-3fc2-4c90-bdc4-f5c1431e36c3'
+API_KEY = 'RGAPI-2a69c73a-5965-47e1-ac3c-92df1b9e5fdf'
 REGION = 'na1'
 LOL_WATCHER = LolWatcher(API_KEY)
 
@@ -35,6 +35,11 @@ async def get_champ_list():
     current_champ_list = LOL_WATCHER.data_dragon.champions(champ_version)
     return current_champ_list
 
+async def get_champ_rotation():
+    rotation_json = LOL_WATCHER.champion.rotations(REGION)
+    r_ids = rotation_json['freeChampionIds']
+    return r_ids
+
 ## Help Command ##
 @client.group(invoke_without_command=True)
 async def help(ctx):
@@ -46,6 +51,7 @@ async def help(ctx):
     em.add_field(name='Champion Info', value='`champion\n` `stats`', inline=True)
     em.add_field(name='Player Info', value='`rank`', inline=True)
     em.add_field(name='Champion Selecter', value='`rchamp`', inline=True)
+    em.add_field(name='League Info', value='`rotation`', inline=True)
 
     em.add_field(name='\u200b', value='\u200b', inline=False)
 
@@ -97,6 +103,16 @@ async def rchamp(ctx):
         color=discord.Color.orange()
     )
     em.add_field(name='Syntax', value='`#rchamp`')
+    await ctx.send(embed=em)
+
+@help.command()
+async def rotation(ctx):
+    em = discord.Embed(
+        title='#rotation',
+        description="Displays the current Free Champion Rotation",
+        color=discord.Color.orange()
+    )
+    em.add_field(name='Syntax', value='`#rotation`')
     await ctx.send(embed=em)
 
 ## Ping Command ##
