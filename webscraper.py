@@ -28,5 +28,6 @@ tier_soup = bs4.BeautifulSoup(tier_response.text, 'lxml')
 # item = soup.find_all('ul', {'class': 'champion-stats__list'})[3].findAll('li')[2].find('img').attrs['src']
 
 # Tier list
-tier = tier_soup.find_all('div', {'class': 'rt-tr-group'})
+tier = tier_soup.find('strong')
+
 print(tier)
