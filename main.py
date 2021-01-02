@@ -30,6 +30,10 @@ async def servercount(ctx):
     await ctx.send(f'I am currently in **{len(client.guilds)}** servers')
 
 @client.command()
+async def check(ctx):
+    print(client.guilds)
+
+@client.command()
 async def vote(ctx):
     em = discord.Embed(
         title='Please support Scuttlebot on top.gg by voting!',

@@ -236,7 +236,7 @@ class ChampionInfo(commands.Cog):
 
         em.add_field(name='\u200b', value='\u200b', inline=False)
 
-        em.add_field(name='Items:', value='Test')
+        em.add_field(name='Items:', value='In Development..')
 
         await ctx.send(embed=em)
 
