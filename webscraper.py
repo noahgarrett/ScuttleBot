@@ -5,7 +5,7 @@ from Bot.runes import *
 
 url = 'https://na.op.gg/champion/akali/statistics'
 moba_url = 'https://champion.gg/champion/Nasus/Top'
-tier_url = 'https://u.gg/lol/top-lane-tier-list'
+tier_url = 'https://tierlist.gg/top-lane-tier-list'
 
 # response = requests.get(url)
 # moba_response = requests.get(moba_url)
@@ -28,6 +28,12 @@ tier_soup = bs4.BeautifulSoup(tier_response.text, 'lxml')
 # item = soup.find_all('ul', {'class': 'champion-stats__list'})[3].findAll('li')[2].find('img').attrs['src']
 
 # Tier list
-tier = tier_soup.find('strong')
-
-print(tier)
+# tier = tier_soup.find_all('div', {'class': 'TierPage-Tier-Items'})[0].findAll('div', {'class': 'TierItem-Image'})[0].find('img').attrs['data-src']
+top_s_tier = []
+for i in range(0, 10):
+    tier = tier_soup.find_all('div', {'class': 'TierPage-Tier-Items'})[0].findAll('div', {'class': 'TierItem-Image'})[i].find('img').attrs['alt']
+    top_s_tier.append(tier)
+    print(tier)
+    if tier == None:
+        break
+print(top_s_tier)
