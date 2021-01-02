@@ -19,6 +19,11 @@ for filename in os.listdir('./cogs'):
         client.load_extension(f'cogs.{filename[:-3]}')
         print(f'Loaded: {filename[:-3]}')
 
+## Server Count ##
+@client.command()
+async def servercount(ctx):
+    await ctx.send(f'I am currently in **{len(client.guilds)}** servers')
+
 ## Helper Functions ##
 async def get_summoner_id(summoner):
     sum_id = LOL_WATCHER.summoner.by_name(REGION, summoner)
@@ -52,6 +57,8 @@ async def help(ctx):
     em.add_field(name='Player Info', value='`rank`', inline=True)
     em.add_field(name='Champion Selecter', value='`rchamp`', inline=True)
     em.add_field(name='League Info', value='`rotation`', inline=True)
+    em.add_field(name='\u200b', value='\u200b', inline=True)
+    em.add_field(name='Server Count', value=f'`servercount`', inline=True)
 
     em.add_field(name='\u200b', value='\u200b', inline=False)
 
@@ -113,6 +120,16 @@ async def rotation(ctx):
         color=discord.Color.orange()
     )
     em.add_field(name='Syntax', value='`#rotation`')
+    await ctx.send(embed=em)
+
+@help.command()
+async def servercount(ctx):
+    em = discord.Embed(
+        title='#servercount',
+        description="Displays the current number of servers ScuttleBot is in",
+        color=discord.Color.orange()
+    )
+    em.add_field(name='Syntax', value='`#servercount`')
     await ctx.send(embed=em)
 
 ## Ping Command ##
