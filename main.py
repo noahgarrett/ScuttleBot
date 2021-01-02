@@ -73,6 +73,7 @@ async def help(ctx):
 
     em.add_field(name='Invite Me!', value='[Invite](https://discord.com/oauth2/authorize?client_id=791336194230845490&scope=bot&permissions=347201)',
                  inline=True)
+    em.add_field(name='Please vote!', value='[Vote for ScuttleBot](https://top.gg/bot/791336194230845490/vote)')
     em.add_field(name='Join My Support Server', value='[The River](https://discord.gg/VMwphqfmQk)', inline=True)
 
     await ctx.send(embed=em)
