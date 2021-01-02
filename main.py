@@ -65,7 +65,7 @@ async def help(ctx):
     em.add_field(name='Champion Info', value='`champion\n` `stats`', inline=True)
     em.add_field(name='Player Info', value='`rank`', inline=True)
     em.add_field(name='Champion Selecter', value='`rchamp`', inline=True)
-    em.add_field(name='League Info', value='`rotation`', inline=True)
+    em.add_field(name='League Info', value='`rotation\n` `tierlist`', inline=True)
     em.add_field(name='\u200b', value='\u200b', inline=True)
     em.add_field(name='Bot Info', value=f'`servercount\n` `vote`', inline=True)
 
