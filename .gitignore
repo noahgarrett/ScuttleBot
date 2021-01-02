@@ -125,3 +125,5 @@ dmypy.json
 .pyre/
 *.exe
 *.bat
+images/License/noah.jpg
+images/License/noahBack.jpg
