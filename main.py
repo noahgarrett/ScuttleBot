@@ -152,6 +152,17 @@ async def vote(ctx):
     em.add_field(name='Syntax', value='`#vote`')
     await ctx.send(embed=em)
 
+@help.command()
+async def tierlist(ctx):
+    em = discord.Embed(
+        title='#tierlist',
+        description="Displays the current tier list for a given role",
+        color=discord.Color.orange()
+    )
+    em.add_field(name='Syntax', value='`#tierlist <role>`')
+    em.set_footer(text='role = top, jungle, mid, support, adc')
+    await ctx.send(embed=em)
+
 ## Ping Command ##
 @client.command()
 async def ping(ctx):

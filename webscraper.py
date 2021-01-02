@@ -5,7 +5,7 @@ from Bot.runes import *
 
 url = 'https://na.op.gg/champion/akali/statistics'
 moba_url = 'https://champion.gg/champion/Nasus/Top'
-tier_url = 'https://tierlist.gg/top-lane-tier-list'
+tier_url = 'https://tierlist.gg/jungle-tier-list'
 
 # response = requests.get(url)
 # moba_response = requests.get(moba_url)
@@ -29,11 +29,21 @@ tier_soup = bs4.BeautifulSoup(tier_response.text, 'lxml')
 
 # Tier list
 # tier = tier_soup.find_all('div', {'class': 'TierPage-Tier-Items'})[0].findAll('div', {'class': 'TierItem-Image'})[0].find('img').attrs['data-src']
-top_s_tier = []
+
+jungle_s_tier = []
 for i in range(0, 10):
-    tier = tier_soup.find_all('div', {'class': 'TierPage-Tier-Items'})[0].findAll('div', {'class': 'TierItem-Image'})[i].find('img').attrs['alt']
-    top_s_tier.append(tier)
-    print(tier)
-    if tier == None:
+    try:
+        tier = tier_soup.find_all('div', {'class': 'TierPage-Tier-Items'})[0].findAll('div', {'class': 'TierItem-Image'})[i].find('img').attrs['alt']
+        jungle_s_tier.append(tier)
+        print(jungle_s_tier)
+    except:
         break
-print(top_s_tier)
+
+# tier = tier_soup.find_all('a', {'class': 'TierItem'})[6].findAll('div', {'class': 'TierItem-Image'})[0].find('img').attrs['alt']
+# print(tier)
+print(jungle_s_tier)
+
+# tier = tier_soup.find_all('div', {'class': 'TierPage-Tier-Items'})[0].findAll('div', {
+#             'class': 'TierItem-Image'})[0].find('img').attrs['alt']
+#
+# print(tier)
