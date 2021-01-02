@@ -19,10 +19,19 @@ for filename in os.listdir('./cogs'):
         client.load_extension(f'cogs.{filename[:-3]}')
         print(f'Loaded: {filename[:-3]}')
 
-## Server Count ##
+## Bot Specific Commands ##
 @client.command()
 async def servercount(ctx):
     await ctx.send(f'I am currently in **{len(client.guilds)}** servers')
+
+@client.command()
+async def vote(ctx):
+    em = discord.Embed(
+        title='Please support Scuttlebot on top.gg by voting!',
+        color=discord.Color.purple()
+    )
+    em.add_field(name='Click here to vote', value='[Vote for ScuttleBot](https://top.gg/bot/791336194230845490/vote)')
+    await ctx.send(embed=em)
 
 ## Helper Functions ##
 async def get_summoner_id(summoner):
@@ -58,7 +67,7 @@ async def help(ctx):
     em.add_field(name='Champion Selecter', value='`rchamp`', inline=True)
     em.add_field(name='League Info', value='`rotation`', inline=True)
     em.add_field(name='\u200b', value='\u200b', inline=True)
-    em.add_field(name='Server Count', value=f'`servercount`', inline=True)
+    em.add_field(name='Bot Info', value=f'`servercount\n` `vote`', inline=True)
 
     em.add_field(name='\u200b', value='\u200b', inline=False)
 
@@ -130,6 +139,16 @@ async def servercount(ctx):
         color=discord.Color.orange()
     )
     em.add_field(name='Syntax', value='`#servercount`')
+    await ctx.send(embed=em)
+
+@help.command()
+async def vote(ctx):
+    em = discord.Embed(
+        title='#vote',
+        description="Displays the top.gg vote link",
+        color=discord.Color.orange()
+    )
+    em.add_field(name='Syntax', value='`#vote`')
     await ctx.send(embed=em)
 
 ## Ping Command ##
