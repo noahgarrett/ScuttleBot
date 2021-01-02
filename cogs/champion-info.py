@@ -4,6 +4,7 @@ import main
 import requests
 import bs4
 from Bot.runes import *
+from Bot.summoner_spells import *
 
 class ChampionInfo(commands.Cog):
     def __init__(self, client):
@@ -170,6 +171,32 @@ class ChampionInfo(commands.Cog):
                                 break
         ###################
 
+        ###### Summoner Spells ######
+        summoner_spell1 = soup_.find_all('ul', {'class': 'champion-stats__list'})[0].findAll('li', {'class': 'champion-stats__list__item'})[0].find('img').attrs['src']
+        summoner_spell1_name = ''
+        for sum1 in summoner_spells:
+            if summoner_spell1 == summoner_spells[sum1]:
+                for sum1_name in summoner_spells_names:
+                    if summoner_spell1 == summoner_spells_names[sum1_name]:
+                        for sum1_emoji in summoner_spells_emoji:
+                            if summoner_spell1 == summoner_spells_emoji[sum1_emoji]:
+                                summoner_spell1 = sum1_emoji
+                                summoner_spell1_name = sum1_name
+                                break
+
+        summoner_spell2 = soup_.find_all('ul', {'class': 'champion-stats__list'})[0].findAll('li', {'class': 'champion-stats__list__item'})[1].find('img').attrs['src']
+        summoner_spell2_name = ''
+        for sum2 in summoner_spells:
+            if summoner_spell2 == summoner_spells[sum2]:
+                for sum2_name in summoner_spells_names:
+                    if summoner_spell2 == summoner_spells_names[sum2_name]:
+                        for sum2_emoji in summoner_spells_emoji:
+                            if summoner_spell2 == summoner_spells_emoji[sum2_emoji]:
+                                summoner_spell2 = sum2_emoji
+                                summoner_spell2_name = sum2_name
+                                break
+        #############################
+
         ###### Items ######
 
         ###################
@@ -187,6 +214,11 @@ class ChampionInfo(commands.Cog):
 
         em.add_field(name='Ban-Rate', value=ban_rate, inline=True)
         em.add_field(name='Matches', value=matches, inline=True)
+
+        em.add_field(name='\u200b', value='\u200b', inline=False)
+
+        em.add_field(name='Spells:', value=f'{summoner_spell1} **{summoner_spell1_name}**\n'
+                                           f'{summoner_spell2} **{summoner_spell2_name}**')
 
         em.add_field(name='\u200b', value='\u200b', inline=False)
 

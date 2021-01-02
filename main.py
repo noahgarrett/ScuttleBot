@@ -9,9 +9,14 @@ API_KEY = 'RGAPI-4da05ce5-bc28-4d59-aef1-1caa5d246a91'
 REGION = 'na1'
 LOL_WATCHER = LolWatcher(API_KEY)
 
-client = commands.Bot(command_prefix= '#')
+scuttle_prefix = '#'
+thicc_prefix = '.'
+
+client = commands.Bot(command_prefix= thicc_prefix)
 client.remove_command('help')
-token = 'NzkxMzM2MTk0MjMwODQ1NDkw.X-NrQw.tOvPuEh5k6mW6ltEgTsiBPaOhvA'
+
+scuttle_token = 'NzkxMzM2MTk0MjMwODQ1NDkw.X-NrQw.tOvPuEh5k6mW6ltEgTsiBPaOhvA'
+thicc_token = 'NzU1NDQ5NjQ0NzIwMzI0NjQw.X2DdTg.ilG6fU6a_TU1jmlsmFbfX5N-fBg'
 
 ## Cog Setup ##
 for filename in os.listdir('./cogs'):
@@ -169,5 +174,5 @@ async def ping(ctx):
     await ctx.send(f"My latency is: {round(client.latency * 1000)}ms")
 
 ## Runs Bot ##
-client.run(token)
+client.run(thicc_token)
 # client.run(os.environ['token'])
