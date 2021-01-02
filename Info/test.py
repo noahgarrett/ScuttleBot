@@ -2,7 +2,7 @@ from riotwatcher import LolWatcher, ApiError
 from Bot.runes import *
 REGION = 'na1'
 summoner_ = 'Xsychgames'
-API_KEY = 'RGAPI-2a69c73a-5965-47e1-ac3c-92df1b9e5fdf'
+API_KEY = 'RGAPI-4da05ce5-bc28-4d59-aef1-1caa5d246a91'
 LOL_WATCHER = LolWatcher(API_KEY)
 
 # me = LOL_WATCHER.summoner.by_name(REGION, 'Xsychgames')
@@ -35,16 +35,23 @@ def get_champ_rotation():
     r_ids = rotation_json['freeChampionIds']
     return r_ids
 
-r_ids = get_champ_rotation()
-champ_list = get_champ_list()
+# r_ids = get_champ_rotation()
+# champ_list = get_champ_list()
 
+def get_summoner_id(summoner):
+    sum_id = LOL_WATCHER.summoner.by_name(REGION, summoner)
+    return sum_id
 
-for id in r_ids:
-    for champ in champ_list['data']:
-        key = champ_list['data'][champ]['key']
-        if key == str(id):
-            print(champ)
-        # print(champ_list['data'][champ]['key'])
+def get_summoner_mastery():
+    sum_id = get_summoner_id(summoner_)
+    id = sum_id['id']
+    mastery = LOL_WATCHER.champion_mastery.by_summoner(REGION, id)
+    return mastery
+
+i = get_summoner_id(summoner_)
+m = get_summoner_mastery()
+
+print(i)
 
 # for i in free1:
 #     print(i)

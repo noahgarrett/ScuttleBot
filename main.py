@@ -47,6 +47,10 @@ async def get_summoner_id(summoner):
     sum_id = LOL_WATCHER.summoner.by_name(REGION, summoner)
     return sum_id
 
+async def get_summoner_mastery(region, id):
+    mastery = LOL_WATCHER.champion_mastery.by_summoner(region, id)
+    return mastery
+
 async def get_rank(summoner):
     sum_id = await get_summoner_id(summoner)
     sum_rank = LOL_WATCHER.league.by_summoner(REGION, sum_id['id'])
@@ -67,12 +71,12 @@ async def get_champ_rotation():
 @client.group(invoke_without_command=True)
 async def help(ctx):
     em = discord.Embed(
-        title='ScuttleBot v1.0.0',
+        title='ScuttleBot v1.1.2',
         description='Use #help <command> for extended information on a command',
         color=discord.Color.orange()
     )
     em.add_field(name='Champion Info', value='`champion\n` `stats`', inline=True)
-    em.add_field(name='Player Info', value='`rank`', inline=True)
+    em.add_field(name='Player Info', value='`rank\n` `mastery`', inline=True)
     em.add_field(name='Champion Selecter', value='`rchamp`', inline=True)
     em.add_field(name='League Info', value='`rotation\n` `tierlist`', inline=True)
     em.add_field(name='\u200b', value='\u200b', inline=True)
@@ -170,6 +174,16 @@ async def tierlist(ctx):
     )
     em.add_field(name='Syntax', value='`#tierlist <role>`')
     em.set_footer(text='role = top, jungle, mid, support, adc')
+    await ctx.send(embed=em)
+
+@help.command()
+async def mastery(ctx):
+    em = discord.Embed(
+        title='#mastery',
+        description="Displays the top three masteries for a given summoner",
+        color=discord.Color.orange()
+    )
+    em.add_field(name='Syntax', value='`#mastery <summonerName>`')
     await ctx.send(embed=em)
 
 ## Ping Command ##
