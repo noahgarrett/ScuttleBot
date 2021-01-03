@@ -32,12 +32,15 @@ async def servercount(ctx):
 @client.command()
 async def usercount(ctx):
     users = 0
+    member_count_list = []
     for server in client.guilds:
         id = server.id
         guild = client.get_guild(id)
         member_list = guild.member_count
+        member_count_list.append(member_list)
         users += member_list
-    await ctx.send(f'Out of **{len(client.guilds)}** servers, there is a total of **{users}** users.')
+    await ctx.send(f'Out of **{len(client.guilds)}** servers, there is a total of **{users}** users.\n'
+                   f' The largest server I am apart of has **{max(member_count_list)}** users.')
 
 
 @client.command()
