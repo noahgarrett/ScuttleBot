@@ -12,7 +12,7 @@ LOL_WATCHER = LolWatcher(API_KEY)
 scuttle_prefix = '#'
 thicc_prefix = '.'
 
-client = commands.Bot(command_prefix= thicc_prefix)
+client = commands.Bot(command_prefix= scuttle_prefix)
 client.remove_command('help')
 
 scuttle_token = 'NzkxMzM2MTk0MjMwODQ1NDkw.X-NrQw.tOvPuEh5k6mW6ltEgTsiBPaOhvA'
@@ -210,5 +210,5 @@ async def ping(ctx):
     await ctx.send(f"My latency is: {round(client.latency * 1000)}ms")
 
 ## Runs Bot ##
-client.run(thicc_token)
+client.run(scuttle_token)
 # client.run(os.environ['token'])
