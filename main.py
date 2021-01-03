@@ -30,6 +30,17 @@ async def servercount(ctx):
     await ctx.send(f'I am currently in **{len(client.guilds)}** servers')
 
 @client.command()
+async def usercount(ctx):
+    users = 0
+    for server in client.guilds:
+        id = server.id
+        guild = client.get_guild(id)
+        member_list = guild.member_count
+        users += member_list
+    await ctx.send(f'Out of **{len(client.guilds)}** servers, there is a total of **{users}** users.')
+
+
+@client.command()
 async def check(ctx):
     print(client.guilds)
 
