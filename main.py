@@ -38,7 +38,6 @@ async def analytics(ctx):
 
     em = discord.Embed(
         title='ScuttleBot Analytics',
-        description='Server count | User count | Ping',
         color=discord.Color.blurple()
     )
     em.add_field(name='Server Count', value=f'{len(client.guilds)}', inline=True)
