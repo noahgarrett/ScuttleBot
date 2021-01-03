@@ -40,7 +40,7 @@ async def usercount(ctx):
         member_count_list.append(member_list)
         users += member_list
     await ctx.send(f'Out of **{len(client.guilds)}** servers, there is a total of **{users}** users.\n'
-                   f' The largest server I am apart of has **{max(member_count_list)}** users.')
+                   f'The largest server I am apart of has **{max(member_count_list)}** users.')
 
 
 @client.command()
