@@ -41,9 +41,14 @@ async def analytics(ctx):
         description='Server count | User count | Ping',
         color=discord.Color.blurple()
     )
-    em.add_field(name='Server Count', value=f'{len(client.guilds)}', inline=False)
-    em.add_field(name='User Count', value=f'{users}', inline=False)
-    em.add_field(name='Ping', value=f'{round(client.latency * 1000)}ms', inline=False)
+    em.add_field(name='Server Count', value=f'{len(client.guilds)}', inline=True)
+    em.add_field(name='User Count', value=f'{users}', inline=True)
+
+    em.add_field(name='\u200b', value='\u200b', inline=False)
+
+    em.add_field(name='Largest Server', value=f'{max(member_count_list)} Members', inline=True)
+    em.add_field(name='Ping', value=f'{round(client.latency * 1000)}ms', inline=True)
+
 
     await ctx.send(embed=em)
 
