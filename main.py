@@ -12,7 +12,7 @@ LOL_WATCHER = LolWatcher(API_KEY)
 scuttle_prefix = '#'
 thicc_prefix = '.'
 
-client = commands.Bot(command_prefix= scuttle_prefix)
+client = commands.Bot(command_prefix= thicc_prefix)
 client.remove_command('help')
 
 scuttle_token = 'NzkxMzM2MTk0MjMwODQ1NDkw.X-NrQw.tOvPuEh5k6mW6ltEgTsiBPaOhvA'
@@ -26,11 +26,7 @@ for filename in os.listdir('./cogs'):
 
 ## Bot Specific Commands ##
 @client.command()
-async def servercount(ctx):
-    await ctx.send(f'I am currently in **{len(client.guilds)}** servers')
-
-@client.command()
-async def usercount(ctx):
+async def analytics(ctx):
     users = 0
     member_count_list = []
     for server in client.guilds:
@@ -39,9 +35,17 @@ async def usercount(ctx):
         member_list = guild.member_count
         member_count_list.append(member_list)
         users += member_list
-    await ctx.send(f'Out of **{len(client.guilds)}** servers, there is a total of **{users}** users.\n'
-                   f'The largest server I am apart of has **{max(member_count_list)}** users.')
 
+    em = discord.Embed(
+        title='ScuttleBot Analytics',
+        description='Server count | User count | Ping',
+        color=discord.Color.blurple()
+    )
+    em.add_field(name='Server Count', value=f'{len(client.guilds)}', inline=False)
+    em.add_field(name='User Count', value=f'{users}', inline=False)
+    em.add_field(name='Ping', value=f'{round(client.latency * 1000)}ms', inline=False)
+
+    await ctx.send(embed=em)
 
 @client.command()
 async def check(ctx):
@@ -94,7 +98,7 @@ async def help(ctx):
     em.add_field(name='Champion Selecter', value='`rchamp`', inline=True)
     em.add_field(name='League Info', value='`rotation\n` `tierlist`', inline=True)
     em.add_field(name='\u200b', value='\u200b', inline=True)
-    em.add_field(name='Bot Info', value=f'`servercount\n` `vote`', inline=True)
+    em.add_field(name='Bot Info', value=f'`analytics\n` `vote`', inline=True)
 
     em.add_field(name='\u200b', value='\u200b', inline=False)
 
@@ -160,13 +164,13 @@ async def rotation(ctx):
     await ctx.send(embed=em)
 
 @help.command()
-async def servercount(ctx):
+async def analytics(ctx):
     em = discord.Embed(
-        title='#servercount',
-        description="Displays the current number of servers ScuttleBot is in",
+        title='#analytics',
+        description="Displays the current number of servers ScuttleBot is in along with users",
         color=discord.Color.orange()
     )
-    em.add_field(name='Syntax', value='`#servercount`')
+    em.add_field(name='Syntax', value='`#analytics`')
     await ctx.send(embed=em)
 
 @help.command()
@@ -206,5 +210,5 @@ async def ping(ctx):
     await ctx.send(f"My latency is: {round(client.latency * 1000)}ms")
 
 ## Runs Bot ##
-client.run(scuttle_token)
+client.run(thicc_token)
 # client.run(os.environ['token'])
