@@ -1,0 +1,14 @@
+{
+  'matches': [
+    {
+      'platformId': 'NA1',
+      'gameId': 3730917128,
+      'champion': 2,
+      'queue': 400,
+      'season': 13,
+      'timestamp': 1609783199233,
+      'role': 'SOLO',
+      'lane': 'TOP'
+    }
+  ]
+}

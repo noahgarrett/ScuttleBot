@@ -2,7 +2,7 @@ from riotwatcher import LolWatcher, ApiError
 from Bot.runes import *
 REGION = 'na1'
 summoner_ = 'Xsychgames'
-API_KEY = 'RGAPI-46d8a6ee-6344-4f27-8a5e-fb734056a495'
+API_KEY = 'RGAPI-e6d4480c-96de-4ea6-a822-5974777108f5'
 LOL_WATCHER = LolWatcher(API_KEY)
 
 # me = LOL_WATCHER.summoner.by_name(REGION, 'Xsychgames')
@@ -51,10 +51,37 @@ def get_summoner_mastery():
 def get_match_history():
     sum_id = get_summoner_id(summoner_)
     id = sum_id['accountId']
-    recent_matches = LOL_WATCHER.match.matchlist_by_account(REGION, id)
-    print(recent_matches)
+    match_list = LOL_WATCHER.match.matchlist_by_account(REGION, id)
+    return match_list
 
-get_match_history()
+def get_recent_matches():
+    match_list = get_match_history()
+    i = 0
+    for match in match_list['matches']:
+        if i == 5:
+            break
+        else:
+            if i == 0:
+                i += 1
+                match1 = match
+            elif i == 1:
+                i += 1
+                match2 = match
+            elif i == 2:
+                i += 1
+                match3 = match
+            elif i == 3:
+                i += 1
+                match4 = match
+            elif i == 4:
+                i += 1
+                match5 = match
+
+    return recent_matches
+
+
+get_recent_matches()
+print(match1, match2, match3, match4, match5)
 
 # for i in free1:
 #     print(i)

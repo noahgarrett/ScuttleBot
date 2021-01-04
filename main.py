@@ -5,7 +5,7 @@ import asyncio
 from riotwatcher import LolWatcher, ApiError
 import os, json
 
-API_KEY = 'RGAPI-e6d4480c-96de-4ea6-a822-5974777108f5'
+API_KEY = 'RGAPI-c23db40a-a814-4471-a222-d9d63ec05b26'
 REGION = 'na1'
 LOL_WATCHER = LolWatcher(API_KEY)
 
@@ -88,6 +88,16 @@ async def get_champ_rotation():
     rotation_json = LOL_WATCHER.champion.rotations(REGION)
     r_ids = rotation_json['freeChampionIds']
     return r_ids
+
+async def get_match_history(summoner):
+    sum_id = await get_summoner_id(summoner)
+    id = sum_id['accountId']
+    match_list = LOL_WATCHER.match.matchlist_by_account(REGION, id, begin_index=0, end_index=4)
+    return match_list
+
+async def get_match_info(match_id):
+    game_id = LOL_WATCHER.match.by_id(REGION, match_id)
+    return game_id
 
 ## Help Command ##
 @client.group(invoke_without_command=True)
