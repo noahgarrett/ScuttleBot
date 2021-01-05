@@ -13,7 +13,7 @@ class MatchHistory(commands.Cog):
         match_list = await main.get_match_history(summoner)
         game_id = await main.get_match_info(id)
 
-        print(game_id)
+        # print(game_id)
         await ctx.send(match_list)
 
 def setup(client):
