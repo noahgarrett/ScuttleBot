@@ -1,5 +1,6 @@
 from riotwatcher import LolWatcher, ApiError
 from Bot.runes import *
+from Bot.version_number_updater import version_number_updater
 REGION = 'na1'
 summoner_ = 'Xsychgames'
 API_KEY = 'RGAPI-e6d4480c-96de-4ea6-a822-5974777108f5'
@@ -54,34 +55,34 @@ def get_match_history():
     match_list = LOL_WATCHER.match.matchlist_by_account(REGION, id)
     return match_list
 
-def get_recent_matches():
-    match_list = get_match_history()
-    i = 0
-    for match in match_list['matches']:
-        if i == 5:
-            break
-        else:
-            if i == 0:
-                i += 1
-                match1 = match
-            elif i == 1:
-                i += 1
-                match2 = match
-            elif i == 2:
-                i += 1
-                match3 = match
-            elif i == 3:
-                i += 1
-                match4 = match
-            elif i == 4:
-                i += 1
-                match5 = match
-
-    return recent_matches
-
-
-get_recent_matches()
-print(match1, match2, match3, match4, match5)
+# def get_recent_matches():
+#     match_list = get_match_history()
+#     i = 0
+#     for match in match_list['matches']:
+#         if i == 5:
+#             break
+#         else:
+#             if i == 0:
+#                 i += 1
+#                 match1 = match
+#             elif i == 1:
+#                 i += 1
+#                 match2 = match
+#             elif i == 2:
+#                 i += 1
+#                 match3 = match
+#             elif i == 3:
+#                 i += 1
+#                 match4 = match
+#             elif i == 4:
+#                 i += 1
+#                 match5 = match
+#
+#     return recent_matches
+#
+#
+# get_recent_matches()
+# print(match1, match2, match3, match4, match5)
 
 # for i in free1:
 #     print(i)
@@ -89,3 +90,10 @@ print(match1, match2, match3, match4, match5)
 
 
 #print(current_champ_list['data']['Aatrox']['stats'])
+
+
+
+"""Testing Version Number Updater"""
+versionUpdater = version_number_updater()
+versionUpdater.update_version_number("//opgg-static.akamaized.net/images/lol/perk/8021.png?image=q_auto:best&v=1609898837")
+print(versionUpdater.get_version_number())
