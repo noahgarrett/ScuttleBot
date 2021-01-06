@@ -5,7 +5,7 @@ import asyncio
 from riotwatcher import LolWatcher, ApiError
 import os, json
 
-API_KEY = 'RGAPI-7c748581-009d-437f-a0f0-41c4aa4de06b'
+API_KEY = 'RGAPI-9a68ef8e-1fcc-4719-b6e1-71b05bf4e05c'
 REGION = 'na1'
 LOL_WATCHER = LolWatcher(API_KEY)
 
