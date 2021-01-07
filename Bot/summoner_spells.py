@@ -1,35 +1,40 @@
+from Bot.version_number_updater import version_number_updater
+
+version_updater = version_number_updater()
+summoner_version_num = version_updater.get_version_number()
+
 summoner_spells = {
-    'Heal': '//opgg-static.akamaized.net/images/lol/spell/SummonerHeal.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Ghost': '//opgg-static.akamaized.net/images/lol/spell/SummonerHaste.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Barrier': '//opgg-static.akamaized.net/images/lol/spell/SummonerBarrier.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Exhaust': '//opgg-static.akamaized.net/images/lol/spell/SummonerExhaust.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Flash': '//opgg-static.akamaized.net/images/lol/spell/SummonerFlash.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Teleport': '//opgg-static.akamaized.net/images/lol/spell/SummonerTeleport.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Smite': '//opgg-static.akamaized.net/images/lol/spell/SummonerSmite.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Cleanse': '//opgg-static.akamaized.net/images/lol/spell/SummonerBoost.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Ignite': '//opgg-static.akamaized.net/images/lol/spell/SummonerDot.png?image=c_scale,q_auto,w_42&v=1609898837'
+    'Heal': f'//opgg-static.akamaized.net/images/lol/spell/SummonerHeal.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Ghost': f'//opgg-static.akamaized.net/images/lol/spell/SummonerHaste.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Barrier': f'//opgg-static.akamaized.net/images/lol/spell/SummonerBarrier.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Exhaust': f'//opgg-static.akamaized.net/images/lol/spell/SummonerExhaust.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Flash': f'//opgg-static.akamaized.net/images/lol/spell/SummonerFlash.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Teleport': f'//opgg-static.akamaized.net/images/lol/spell/SummonerTeleport.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Smite': f'//opgg-static.akamaized.net/images/lol/spell/SummonerSmite.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Cleanse': f'//opgg-static.akamaized.net/images/lol/spell/SummonerBoost.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Ignite': f'//opgg-static.akamaized.net/images/lol/spell/SummonerDot.png?image=c_scale,q_auto,w_42&v={summoner_version_num}'
 }
 
 summoner_spells_emoji = {
-    '<:heal:795017461325365288>': '//opgg-static.akamaized.net/images/lol/spell/SummonerHeal.png?image=c_scale,q_auto,w_42&v=1609898837',
-    '<:ghost_:795017461283160074>': '//opgg-static.akamaized.net/images/lol/spell/SummonerHaste.png?image=c_scale,q_auto,w_42&v=1609898837',
-    '<:barrier:795017459346178110>': '//opgg-static.akamaized.net/images/lol/spell/SummonerBarrier.png?image=c_scale,q_auto,w_42&v=1609898837',
-    '<:exhaust:795017459668090891>': '//opgg-static.akamaized.net/images/lol/spell/SummonerExhaust.png?image=c_scale,q_auto,w_42&v=1609898837',
-    '<:flash:795017461106999316>': '//opgg-static.akamaized.net/images/lol/spell/SummonerFlash.png?image=c_scale,q_auto,w_42&v=1609898837',
-    '<:teleport:795017461451587594>': '//opgg-static.akamaized.net/images/lol/spell/SummonerTeleport.png?image=c_scale,q_auto,w_42&v=1609898837',
-    '<:smite:795017461346861056>': '//opgg-static.akamaized.net/images/lol/spell/SummonerSmite.png?image=c_scale,q_auto,w_42&v=1609898837',
-    '<:cleanse:795017459740311572>': '//opgg-static.akamaized.net/images/lol/spell/SummonerBoost.png?image=c_scale,q_auto,w_42&v=1609898837',
-    '<:ignite:795017461275295817>': '//opgg-static.akamaized.net/images/lol/spell/SummonerDot.png?image=c_scale,q_auto,w_42&v=1609898837'
+    '<:heal:795017461325365288>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerHeal.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    '<:ghost_:795017461283160074>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerHaste.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    '<:barrier:795017459346178110>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerBarrier.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    '<:exhaust:795017459668090891>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerExhaust.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    '<:flash:795017461106999316>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerFlash.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    '<:teleport:795017461451587594>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerTeleport.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    '<:smite:795017461346861056>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerSmite.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    '<:cleanse:795017459740311572>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerBoost.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    '<:ignite:795017461275295817>': f'//opgg-static.akamaized.net/images/lol/spell/SummonerDot.png?image=c_scale,q_auto,w_42&v={summoner_version_num}'
 }
 
 summoner_spells_names = {
-    'Heal': '//opgg-static.akamaized.net/images/lol/spell/SummonerHeal.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Ghost': '//opgg-static.akamaized.net/images/lol/spell/SummonerHaste.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Barrier': '//opgg-static.akamaized.net/images/lol/spell/SummonerBarrier.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Exhaust': '//opgg-static.akamaized.net/images/lol/spell/SummonerExhaust.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Flash': '//opgg-static.akamaized.net/images/lol/spell/SummonerFlash.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Teleport': '//opgg-static.akamaized.net/images/lol/spell/SummonerTeleport.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Smite': '//opgg-static.akamaized.net/images/lol/spell/SummonerSmite.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Cleanse': '//opgg-static.akamaized.net/images/lol/spell/SummonerBoost.png?image=c_scale,q_auto,w_42&v=1609898837',
-    'Ignite': '//opgg-static.akamaized.net/images/lol/spell/SummonerDot.png?image=c_scale,q_auto,w_42&v=1609898837'
+    'Heal': f'//opgg-static.akamaized.net/images/lol/spell/SummonerHeal.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Ghost': f'//opgg-static.akamaized.net/images/lol/spell/SummonerHaste.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Barrier': f'//opgg-static.akamaized.net/images/lol/spell/SummonerBarrier.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Exhaust': f'//opgg-static.akamaized.net/images/lol/spell/SummonerExhaust.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Flash': f'//opgg-static.akamaized.net/images/lol/spell/SummonerFlash.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Teleport': f'//opgg-static.akamaized.net/images/lol/spell/SummonerTeleport.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Smite': f'//opgg-static.akamaized.net/images/lol/spell/SummonerSmite.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Cleanse': f'//opgg-static.akamaized.net/images/lol/spell/SummonerBoost.png?image=c_scale,q_auto,w_42&v={summoner_version_num}',
+    'Ignite': f'//opgg-static.akamaized.net/images/lol/spell/SummonerDot.png?image=c_scale,q_auto,w_42&v={summoner_version_num}'
 }

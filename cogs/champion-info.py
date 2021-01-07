@@ -3,12 +3,14 @@ from discord.ext import commands
 import main
 import requests
 import bs4
-from Bot.runes import *
-from Bot.summoner_spells import *
+import Bot.runes as rune_asset
+import Bot.summoner_spells as summoner_asset
+from Bot.version_number_updater import version_number_updater
 
 class ChampionInfo(commands.Cog):
     def __init__(self, client):
         self.client = client
+        self.version_updater = version_number_updater()
 
     @commands.command(name="stats", help="#stats (champion name)") # MAKE FUCKIN PRETTY
     async def stats(self, ctx, champion, champ2=None):
@@ -75,97 +77,98 @@ class ChampionInfo(commands.Cog):
 
             ######### Runes #########
             rune_tree = soup_.find_all('div', {'class': 'perk-page__row'})[0].find('img').attrs['src']
+            self.version_updater.update_version_number(rune_tree)
             tree_name = ''
-            for runes in primary_rune_tree_img:
-                if rune_tree == primary_rune_tree_img[runes]:
-                    for tree in tree_names:
-                        if rune_tree == tree_names[tree]:
-                            for emoji in primary_rune_tree_emoji:
-                                if rune_tree == primary_rune_tree_emoji[emoji]:
+            for runes in rune_asset.primary_rune_tree_img:
+                if rune_tree == rune_asset.primary_rune_tree_img[runes]:
+                    for tree in rune_asset.tree_names:
+                        if rune_tree == rune_asset.tree_names[tree]:
+                            for emoji in rune_asset.primary_rune_tree_emoji:
+                                if rune_tree == rune_asset.primary_rune_tree_emoji[emoji]:
                                     rune_tree = emoji
                                     tree_name = tree
                                     break
 
             keystone = soup_.find_all('div', {'class': 'perk-page__item--active'})[0].find('img').attrs['src']
             keystone_name = ''
-            for stone in keystones_img:
-                if keystone == keystones_img[stone]:
-                    for k_name in keystone_names:
-                        if keystone == keystone_names[k_name]:
-                            for k_emoji in keystones_emoji:
-                                if keystone == keystones_emoji[k_emoji]:
+            for stone in rune_asset.keystones_img:
+                if keystone == rune_asset.keystones_img[stone]:
+                    for k_name in rune_asset.keystone_names:
+                        if keystone == rune_asset.keystone_names[k_name]:
+                            for k_emoji in rune_asset.keystones_emoji:
+                                if keystone == rune_asset.keystones_emoji[k_emoji]:
                                     keystone = k_emoji
                                     keystone_name = k_name
                                     break
 
             rune1 = soup_.find_all('div', {'class': 'perk-page__item--active'})[1].find('img').attrs['src']
             rune1_name = ''
-            for rune in rune1_img:
-                if rune1 == rune1_img[rune]:
-                    for r1_name in rune1_names:
-                        if rune1 == rune1_names[r1_name]:
-                            for r1_emoji in rune1_emoji:
-                                if rune1 == rune1_emoji[r1_emoji]:
+            for rune in rune_asset.rune1_img:
+                if rune1 == rune_asset.rune1_img[rune]:
+                    for r1_name in rune_asset.rune1_names:
+                        if rune1 == rune_asset.rune1_names[r1_name]:
+                            for r1_emoji in rune_asset.rune1_emoji:
+                                if rune1 == rune_asset.rune1_emoji[r1_emoji]:
                                     rune1 = r1_emoji
                                     rune1_name = r1_name
                                     break
 
             rune2 = soup_.find_all('div', {'class': 'perk-page__item--active'})[2].find('img').attrs['src']
             rune2_name = ''
-            for rune_ in rune2_img:
-                if rune2 == rune2_img[rune_]:
-                    for r2_name in rune2_names:
-                        if rune2 == rune2_names[r2_name]:
-                            for r2_emoji in rune2_emoji:
-                                if rune2 == rune2_emoji[r2_emoji]:
+            for rune_ in rune_asset.rune2_img:
+                if rune2 == rune_asset.rune2_img[rune_]:
+                    for r2_name in rune_asset.rune2_names:
+                        if rune2 == rune_asset.rune2_names[r2_name]:
+                            for r2_emoji in rune_asset.rune2_emoji:
+                                if rune2 == rune_asset.rune2_emoji[r2_emoji]:
                                     rune2 = r2_emoji
                                     rune2_name = r2_name
                                     break
 
             rune3 = soup_.find_all('div', {'class': 'perk-page__item--active'})[3].find('img').attrs['src']
             rune3_name = ''
-            for rune__ in rune3_img:
-                if rune3 == rune3_img[rune__]:
-                    for r3_name in rune3_names:
-                        if rune3 == rune3_names[r3_name]:
-                            for r3_emoji in rune3_emoji:
-                                if rune3 == rune3_emoji[r3_emoji]:
+            for rune__ in rune_asset.rune3_img:
+                if rune3 == rune_asset.rune3_img[rune__]:
+                    for r3_name in rune_asset.rune3_names:
+                        if rune3 == rune_asset.rune3_names[r3_name]:
+                            for r3_emoji in rune_asset.rune3_emoji:
+                                if rune3 == rune_asset.rune3_emoji[r3_emoji]:
                                     rune3 = r3_emoji
                                     rune3_name = r3_name
                                     break
 
             rune_tree_2 = soup_.find_all('div', {'class': 'perk-page__item--mark'})[1].find('img').attrs['src']
             tree_name2 = ''
-            for runes_ in secondary_rune_tree_img:
-                if rune_tree_2 == secondary_rune_tree_img[runes_]:
-                    for tree_ in tree_names:
-                        if rune_tree_2 == tree_names[tree_]:
-                            for emoji_ in primary_rune_tree_emoji:
-                                if rune_tree_2 == primary_rune_tree_emoji[emoji_]:
+            for runes_ in rune_asset.secondary_rune_tree_img:
+                if rune_tree_2 == rune_asset.secondary_rune_tree_img[runes_]:
+                    for tree_ in rune_asset.tree_names:
+                        if rune_tree_2 == rune_asset.tree_names[tree_]:
+                            for emoji_ in rune_asset.primary_rune_tree_emoji:
+                                if rune_tree_2 == rune_asset.primary_rune_tree_emoji[emoji_]:
                                     rune_tree_2 = emoji_
                                     tree_name2 = tree_
                                     break
 
             secondary1 = soup_.find_all('div', {'class': 'perk-page__item--active'})[4].find('img').attrs['src']
             secondary1_name = ''
-            for second1 in second1_img:
-                if secondary1 == second1_img[second1]:
-                    for second1_name in second1_names:
-                        if secondary1 == second1_names[second1_name]:
-                            for s1_emoji in second1_emoji:
-                                if secondary1 == second1_emoji[s1_emoji]:
+            for second1 in rune_asset.second1_img:
+                if secondary1 == rune_asset.second1_img[second1]:
+                    for second1_name in rune_asset.second1_names:
+                        if secondary1 == rune_asset.second1_names[second1_name]:
+                            for s1_emoji in rune_asset.second1_emoji:
+                                if secondary1 == rune_asset.second1_emoji[s1_emoji]:
                                     secondary1 = s1_emoji
                                     secondary1_name = second1_name
                                     break
 
             secondary2 = soup_.find_all('div', {'class': 'perk-page__item--active'})[5].find('img').attrs['src']
             secondary2_name = ''
-            for second2 in second2_img:
-                if secondary2 == second2_img[second2]:
-                    for second2_name in second2_names:
-                        if secondary2 == second2_names[second2_name]:
-                            for s2_emoji in second2_emoji:
-                                if secondary2 == second2_emoji[s2_emoji]:
+            for second2 in rune_asset.second2_img:
+                if secondary2 == rune_asset.second2_img[second2]:
+                    for second2_name in rune_asset.second2_names:
+                        if secondary2 == rune_asset.second2_names[second2_name]:
+                            for s2_emoji in rune_asset.second2_emoji:
+                                if secondary2 == rune_asset.second2_emoji[s2_emoji]:
                                     secondary2 = s2_emoji
                                     secondary2_name = second2_name
                                     break
@@ -173,25 +176,26 @@ class ChampionInfo(commands.Cog):
 
             ###### Summoner Spells ######
             summoner_spell1 = soup_.find_all('ul', {'class': 'champion-stats__list'})[0].findAll('li', {'class': 'champion-stats__list__item'})[0].find('img').attrs['src']
+            summoner_asset.summoner_version_num = self.version_updater.get_version_number()
             summoner_spell1_name = ''
-            for sum1 in summoner_spells:
-                if summoner_spell1 == summoner_spells[sum1]:
-                    for sum1_name in summoner_spells_names:
-                        if summoner_spell1 == summoner_spells_names[sum1_name]:
-                            for sum1_emoji in summoner_spells_emoji:
-                                if summoner_spell1 == summoner_spells_emoji[sum1_emoji]:
+            for sum1 in summoner_asset.summoner_spells:
+                if summoner_spell1 == summoner_asset.summoner_spells[sum1]:
+                    for sum1_name in summoner_asset.summoner_spells_names:
+                        if summoner_spell1 == summoner_asset.summoner_spells_names[sum1_name]:
+                            for sum1_emoji in summoner_asset.summoner_spells_emoji:
+                                if summoner_spell1 == summoner_asset.summoner_spells_emoji[sum1_emoji]:
                                     summoner_spell1 = sum1_emoji
                                     summoner_spell1_name = sum1_name
                                     break
 
             summoner_spell2 = soup_.find_all('ul', {'class': 'champion-stats__list'})[0].findAll('li', {'class': 'champion-stats__list__item'})[1].find('img').attrs['src']
             summoner_spell2_name = ''
-            for sum2 in summoner_spells:
-                if summoner_spell2 == summoner_spells[sum2]:
-                    for sum2_name in summoner_spells_names:
-                        if summoner_spell2 == summoner_spells_names[sum2_name]:
-                            for sum2_emoji in summoner_spells_emoji:
-                                if summoner_spell2 == summoner_spells_emoji[sum2_emoji]:
+            for sum2 in summoner_asset.summoner_spells:
+                if summoner_spell2 == summoner_asset.summoner_spells[sum2]:
+                    for sum2_name in summoner_asset.summoner_spells_names:
+                        if summoner_spell2 == summoner_asset.summoner_spells_names[sum2_name]:
+                            for sum2_emoji in summoner_asset.summoner_spells_emoji:
+                                if summoner_spell2 == summoner_asset.summoner_spells_emoji[sum2_emoji]:
                                     summoner_spell2 = sum2_emoji
                                     summoner_spell2_name = sum2_name
                                     break
@@ -240,7 +244,8 @@ class ChampionInfo(commands.Cog):
 
             await ctx.send(embed=em)
 
-        except:
+        except Exception as e:
+            print(e)
             await ctx.send('Build could not be found.')
 
 
