@@ -127,3 +127,4 @@ dmypy.json
 *.bat
 images/License/noah.jpg
 images/License/noahBack.jpg
+config.py

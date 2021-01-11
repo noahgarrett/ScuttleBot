@@ -4,8 +4,8 @@ from discord.utils import get
 import asyncio
 from riotwatcher import LolWatcher, ApiError
 import os, json
+from config import API_KEY, scuttle_token, thicc_token
 
-API_KEY = 'RGAPI-67bf182c-18f0-41c2-bb0f-89c5b89fb009'
 REGION = 'na1'
 LOL_WATCHER = LolWatcher(API_KEY)
 
@@ -14,9 +14,6 @@ thicc_prefix = '.'
 
 client = commands.Bot(command_prefix= scuttle_prefix)
 client.remove_command('help')
-
-scuttle_token = 'NzkxMzM2MTk0MjMwODQ1NDkw.X-NrQw.tOvPuEh5k6mW6ltEgTsiBPaOhvA'
-thicc_token = 'NzU1NDQ5NjQ0NzIwMzI0NjQw.X2DdTg.ilG6fU6a_TU1jmlsmFbfX5N-fBg'
 
 ## Cog Setup ##
 for filename in os.listdir('./cogs'):
