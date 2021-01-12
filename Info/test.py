@@ -3,7 +3,6 @@ from Bot.runes import *
 from Bot.version_number_updater import version_number_updater
 REGION = 'na1'
 summoner_ = 'Xsychgames'
-# API_KEY = 'RGAPI-e6d4480c-96de-4ea6-a822-5974777108f5'
 LOL_WATCHER = LolWatcher(API_KEY)
 
 # me = LOL_WATCHER.summoner.by_name(REGION, 'Xsychgames')
